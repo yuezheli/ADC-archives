@@ -1,0 +1,98 @@
+# organ volume 
+# cyno data, from rhesus monkey (6.2kg male); data obtained from Shah and Betts, 2012; 
+# https://pubmed.ncbi.nlm.nih.gov/22143261/
+
+
+    # Organ Volumes, [L]; cyno, 6.2kg
+    global V_Plasma = 0.187 
+    global V_LN     = 25.1/1000
+
+    # Organ Volumes, [L]; cyno, 6.2kg
+    global V_Organ = zeros(N_Organs)
+    V_Organ[Lung] = 35.7/1000 
+    V_Organ[Liver] = 187/1000
+    V_Organ[Heart] = 28.3/1000
+    V_Organ[Muscle] = 3273/1000
+    V_Organ[Skin] = 674/1000
+    V_Organ[Adipose] = 154/1000
+    V_Organ[Bone] = 952/1000
+    V_Organ[Brain] = 94/1000
+    V_Organ[Kidney] = 27.3/1000
+    V_Organ[SI] = 98.7/1000
+    V_Organ[LI] = 140/1000
+    V_Organ[Pancreas] = 12.5/1000
+    V_Organ[Thymus] = 2.09/1000
+    V_Organ[Spleen] = 5.95/1000
+    V_Organ[Other] = 132/1000
+
+    # vascular volumes (i.e. plasma volume), [L]; cyno, 6.2kg
+    global V_V = zeros(N_Organs)
+    V_V[Lung] = 1.96/1000
+    V_V[Liver] = 15.9/1000
+    V_V[Heart] = 1.09/1000
+    V_V[Muscle] = 72/1000
+    V_V[Skin] = 25.2/1000
+    V_V[Adipose] = 1.7/1000
+    V_V[Bone] = 20.9/1000
+    V_V[Brain] = 2.07/1000
+    V_V[Kidney] = 1.5/1000
+    V_V[SI] = 1.57/1000
+    V_V[LI] = 2.24/1000
+    V_V[Pancreas] = 0.685/1000
+    V_V[Thymus] = 0.115/1000
+    V_V[Spleen] = 0.72/1000
+    V_V[Other] = 5.56/1000
+
+    # Interstitial Volumes, [L]; cyno, 6.2kg
+    global V_IntS = zeros(N_Organs)
+    V_IntS[Lung] = 10.7/1000
+    V_IntS[Liver] = 37.4/1000
+    V_IntS[Heart] = 4.05/1000
+    V_IntS[Muscle] = 426/1000
+    V_IntS[Skin] = 223/1000
+    V_IntS[Adipose] = 26.3/1000
+    V_IntS[Bone] = 177/1000
+    V_IntS[Brain] = 16.9/1000
+    V_IntS[Kidney] = 4.09/1000
+    V_IntS[SI] = 17.2/1000
+    V_IntS[LI] = 24.4/1000
+    V_IntS[Pancreas] = 2.17/1000
+    V_IntS[Thymus] = 0.355/1000
+    V_IntS[Spleen] = 1.19/1000
+    V_IntS[Other] = 22.7/1000
+
+    # Endosomal Volumes, [L]; cyno, 6.2kg
+    global V_endosomal = zeros(N_Organs)
+    V_endosomal[Heart] = 0.142/1000
+    V_endosomal[Lung] = 0.179/1000
+    V_endosomal[Muscle] = 16.4/1000
+    V_endosomal[Skin] = 3.37/1000
+    V_endosomal[Adipose] = 0.772/1000
+    V_endosomal[Bone] = 4.76/1000
+    V_endosomal[Brain] = 0.47/1000
+    V_endosomal[Kidney] = 0.136/1000
+    V_endosomal[Liver] = 0.934/1000
+    V_endosomal[SI] = 0.494/1000
+    V_endosomal[LI] = 0.702/1000
+    V_endosomal[Pancreas] = 0.0623/1000
+    V_endosomal[Thymus] = 0.0105/1000
+    V_endosomal[Spleen] = 0.0298/1000
+    V_endosomal[Other] = 0.662/1000
+
+    # Blood Flows, [L/h]; cyno, 6.2kg
+    PLQ = zeros(N_Organs)
+    PLQ[Lung] = 22433/1000 
+    PLQ[Liver] = 1251/1000
+    PLQ[Heart] = 696/1000
+    PLQ[Muscle] = 3944/1000
+    PLQ[Skin] = 2492/1000
+    PLQ[Adipose] = 139/1000
+    PLQ[Bone] = 248/1000
+    PLQ[Brain] = 1508/1000
+    PLQ[Kidney] = 3237/1000
+    PLQ[SI] = 3432/1000
+    PLQ[LI] = 3571/1000
+    PLQ[Pancreas] = 399/1000
+    PLQ[Thymus] = 125/1000
+    PLQ[Spleen] = 185/1000
+    PLQ[Other] = 1206/1000   # this is adjusted based on PLQ balance, not from Shah and Betts, 2011; https://pubmed.ncbi.nlm.nih.gov/22143261/

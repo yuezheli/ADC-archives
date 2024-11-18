@@ -1,0 +1,98 @@
+# organ volume 
+# human data (71kg male); data obtained from Shah and Betts, 2012; 
+# https://pubmed.ncbi.nlm.nih.gov/22143261/
+
+
+    # Organ Volumes, [L]; homo, 71kg
+    global V_Plasma = 3.126 
+    global V_LN     = 0.274
+
+    # Organ Volumes, [L]; homo, 71kg
+    global V_Organ = zeros(N_Organs)
+    V_Organ[Lung] = 1000/1000 
+    V_Organ[Liver] = 2143/1000
+    V_Organ[Heart] = 341/1000
+    V_Organ[Muscle] = 30078/1000
+    V_Organ[Skin] = 3408/1000
+    V_Organ[Adipose] = 13465/1000
+    V_Organ[Bone] = 10165/1000
+    V_Organ[Brain] = 1450/1000
+    V_Organ[Kidney] = 332/1000
+    V_Organ[SI] = 385/1000
+    V_Organ[LI] = 548/1000
+    V_Organ[Pancreas] = 104/1000
+    V_Organ[Thymus] = 6.41/1000
+    V_Organ[Spleen] = 221/1000
+    V_Organ[Other] = 4852/1000
+
+    # vascular volumes (i.e. plasma volume), [L]; homo, 71kg
+    global V_V = zeros(N_Organs)
+    V_V[Lung] = 55/1000
+    V_V[Liver] = 183/1000
+    V_V[Heart] = 13.1/1000
+    V_V[Muscle] = 662/1000
+    V_V[Skin] = 127/1000
+    V_V[Adipose] = 148/1000
+    V_V[Bone] = 224/1000
+    V_V[Brain] = 31.9/1000
+    V_V[Kidney] = 18.2/1000
+    V_V[SI] = 6.15/1000
+    V_V[LI] = 8.74/1000
+    V_V[Pancreas] = 5.7/1000
+    V_V[Thymus] = 0.353/1000
+    V_V[Spleen] = 26.8/1000
+    V_V[Other] = 204/1000
+
+    # Interstitial Volumes, [L]; homo, 71kg
+    global V_IntS = zeros(N_Organs)
+    V_IntS[Lung] = 300/1000
+    V_IntS[Liver] = 429/1000
+    V_IntS[Heart] = 48.8/1000
+    V_IntS[Muscle] = 3910/1000
+    V_IntS[Skin] = 1125/1000
+    V_IntS[Adipose] = 2289/1000
+    V_IntS[Bone] = 1891/1000
+    V_IntS[Brain] = 261/1000
+    V_IntS[Kidney] = 49.8/1000
+    V_IntS[SI] = 67.1/1000
+    V_IntS[LI] = 95.3/1000
+    V_IntS[Pancreas] = 18/1000
+    V_IntS[Thymus] = 1.09/1000
+    V_IntS[Spleen] = 44.3/1000
+    V_IntS[Other] = 831/1000
+
+    # Endosomal Volumes, [L]; homo, 71kg
+    global V_endosomal = zeros(N_Organs)
+    V_endosomal[Heart] = 1.71/1000
+    V_endosomal[Lung] = 5.0/1000
+    V_endosomal[Muscle] = 150.0/1000
+    V_endosomal[Skin] = 17.0/1000
+    V_endosomal[Adipose] = 67.3/1000
+    V_endosomal[Bone] = 50.8/1000
+    V_endosomal[Brain] = 7.25/1000
+    V_endosomal[Kidney] = 1.66/1000
+    V_endosomal[Liver] = 10.7/1000
+    V_endosomal[SI] = 1.93/1000
+    V_endosomal[LI] = 2.74/1000
+    V_endosomal[Pancreas] = 0.518/1000
+    V_endosomal[Thymus] = 0.0321/1000
+    V_endosomal[Spleen] = 1.11/1000
+    V_endosomal[Other] = 24.3/1000
+
+    # Blood Flows, [L/h]; homo, 71kg
+    PLQ[Liver] = 13210/1000
+    PLQ[Heart] = 7752/1000
+    PLQ[Muscle] = 33469/1000
+    PLQ[Skin] = 11626/1000
+    PLQ[Adipose] = 11233/1000
+    PLQ[Bone] = 2591/1000
+    PLQ[Brain] = 21453/1000
+    PLQ[Kidney] = 36402/1000
+    PLQ[SI] = 12368/1000
+    PLQ[LI] = 12867/1000
+    PLQ[Pancreas] = 3056/1000
+    PLQ[Thymus] = 353/1000
+    PLQ[Spleen] = 6343/1000
+    PLQ[Other] = 9190/1000              
+    # rebalance PLQ
+    PLQ[Lung] = sum(PLQ[2:end])
