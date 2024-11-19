@@ -3,14 +3,14 @@
 # purpose of this script: to test PK of sacituzumab govitecan, 
 # observed range from Supp Table 1 of Starodub et al., 2016; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4558321/
 
-using Pkg; Pkg.activate("../../");
+using Pkg; Pkg.activate("../");
 
 using DifferentialEquations, RecursiveArrayTools, ComponentArrays
 using DataFrames, DataFramesMeta, CSV
 using Plots
 
 # read in data from Santi et al., 2016; https://pubmed.ncbi.nlm.nih.gov/38236523/
-pk_santi =  CSV.read("../../data/Santi2024.csv",DataFrame);
+pk_santi =  CSV.read("../data/Santi2024.csv",DataFrame);
 pk_intact = @rsubset(pk_santi, :type == "intact_Trodelvy");
 pk_total = @rsubset(pk_santi, :type == "total_Trodelvy");
 

@@ -2,7 +2,7 @@
 # author: Yuezhe Li 
 # purpose of this script: to fit clinical PK for mPBPK model 
 
-using Pkg; Pkg.activate("../../");
+using Pkg; Pkg.activate("..");
 
 using DifferentialEquations, RecursiveArrayTools, ComponentArrays
 using Plots, Statistics, DataFrames, CSV, DataFramesMeta
@@ -14,7 +14,7 @@ include("param.jl");
 TotalCells = 1E-3/Vc
 
 # observed data 
-pk_lewis =  CSV.read("../../data/Lewis2024-clinicalPK.csv",DataFrame);
+pk_lewis =  CSV.read("../data/Lewis2024-clinicalPK.csv",DataFrame);
 
 # update params (default params, from T-DM1)
 p_base.Rcopies = 1.0E6

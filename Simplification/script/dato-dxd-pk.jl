@@ -3,13 +3,13 @@
 # purpose of this script: to fit the PK of Datopotamab deruxtecan
 # observed human data were obtained from Tang poster from AACR 2024 (San Diego, CA)
 
-using Pkg; Pkg.activate("../../");
+using Pkg; Pkg.activate("../");
 
 using DifferentialEquations, RecursiveArrayTools, ComponentArrays
 using DataFrames, DataFramesMeta, CSV
 using Plots
 
-pk_tang =  CSV.read("../../data/Tang2024.csv",DataFrame);
+pk_tang =  CSV.read("../data/Tang2024.csv",DataFrame);
 
 
 include("mPBPK_deconj_homo.jl");
