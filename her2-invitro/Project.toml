@@ -1,0 +1,6 @@
+[deps]
+DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
+Optimization = "7f7a1694-90dd-40f0-9382-eb1efda571ba"
+OptimizationNLopt = "4e6fcdb7-1186-4e1f-a706-475e75c168bb"
+ProjectRoot = "e3f974f6-674d-4b8e-a3d1-5850677db852"
+RecursiveArrayTools = "731186ca-8d62-57ce-b412-fbd966d074cd"
