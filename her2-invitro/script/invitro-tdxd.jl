@@ -59,7 +59,7 @@ Nc_tdxd_ = Nc_tdxd_ / Nc_tdxd_0
 
 plot_tdxd_ = plot(xlabel = "ADC conc (ug/mL)", ylabel = "Relative viability (%)", dpi = 300);
 plot!(tdxd_kpl4.adcconc_ugmL, Nc_tdxd_*100, label = "sims"); 
-scatter!(tdxd_kpl4.adcconc_ugmL, tdxd_kpl4.rel_viability*100, label = "Erickson et al., 2012", alpha = 0.8); 
+scatter!(tdxd_kpl4.adcconc_ugmL, tdxd_kpl4.rel_viability*100, label = "Ogitani et al., 2016", alpha = 0.8); 
 plot!(xaxis = :log10);
 display(plot_tdxd_);
 
