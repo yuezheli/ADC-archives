@@ -1,0 +1,336 @@
+% --------------------------------------------------------------------------- %
+% A0 paper poster for MetrumRG						   %
+% --------------------------------------------------------------------------- %
+% Created with Brian Amberg's LaTeX Poster Template. 					     %
+% --------------------------------------------------------------------------- %
+
+% See https://tex.stackexchange.com/questions/215181/bad-colors-in-table-using-baposter
+\PassOptionsToPackage{table,dvipsnames,svgnames}{xcolor} 
+
+%% Update this line to define your own conference-specific dimensions
+\documentclass[portrait,fontscale=0.46,paperwidth=36in,paperheight=48in]{baposter}
+% \documentclass[a0paper,portrait]{baposter}
+
+\usepackage{relsize}		% For \smaller
+\usepackage{url}			% For \url
+\usepackage{epstopdf}	% Included EPS files automatically converted to PDF to include with pdflatex
+
+\usepackage[bitstream-charter]{mathdesign}
+\usepackage[T1]{fontenc}
+
+% Deprecating osfigures option; use oldstyle instead; 2020-09-10
+\usepackage[defaultsans,oldstyle,scale=0.95]{opensans}
+
+%%% Global Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{pix/}}	% Root directory of the pictures 
+\tracingstats=2			% Enabled LaTeX logging with conditionals
+
+
+%%% Color Definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Based on  MetrumRG's branding guidelines (updated April, 2024)
+
+% Primary colors
+\selectcolormodel{HTML}
+\definecolor{halenavy}{HTML}{4F6469}
+\definecolor{steel}{HTML}{779D9D}
+\definecolor{sky}{HTML}{B6D9D3}
+\definecolor{grove}{HTML}{EEF3DA}
+% please use orangepeel and grapefruit sparingly on posters
+\definecolor{orangepeel}{HTML}{FEC36B}
+\definecolor{grapefruit}{HTML}{FE7C76}
+
+% Secondary colors - see branding book for guidance on using secondary colors
+\definecolor{pine}{HTML}{70A586}
+\definecolor{berry}{HTML}{A570A0}
+\definecolor{blueberry}{HTML}{708CA5}
+\definecolor{bark}{HTML}{A57070}
+
+% Metworx logo color
+\definecolor{metworxgreen}{HTML}{00534c}
+\definecolor{metworxblue}{HTML}{00A7B5}
+
+% Metrum M color
+\definecolor{metrumgreen}{HTML}{08642E}
+
+
+%%% Color In Poster %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% text colors
+\colorlet{titlefgcol}{black}   %% Title color
+\colorlet{headerfontcol}{black}
+\colorlet{headerfgcol}{white}  %% box header color
+
+%% box header/background colors
+\colorlet{headerbgcol}{halenavy}  % outer box header color
+\colorlet{bordercol}{sky}		  % outer box border
+\colorlet{demobxcol}{halenavy}	 % inner box border
+\colorlet{colorText}{halenavy}    % colored emphasized text
+
+
+
+% Macro's to include text in colorText (defined above), in bold or italics
+% Can be useful to subtly draw the readers eye
+\newcommand{\colorBF}[1]{\textcolor{colorText}{\textbf{#1}}}
+\newcommand{\colorIT}[1]{\textcolor{colorText}{\textit{#1 }}}
+
+
+%% Use this to put a box around a specific section, within an existing higher level box
+%% E.g., to split the results box into sub-sections if desired. 
+%% See FOCE example project poster for examples 
+%% https://ghe.metrumrg.com/example-projects/bbr-nonmem-poppk-foce/blob/main/deliv/poster-acop-2022/acop13-expo-poster-final.pdf
+\usepackage{tcolorbox}
+\newtcolorbox{demobx}[1][]{colback=white,colframe=demobxcol,width=0.98\linewidth,nobeforeafter,box align=top,before=\noindent,#1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Utility functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Save space in lists. Use this after the opening of the list %%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{
+	\setlength{\itemsep}{1pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Document Start %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\typeout{Poster rendering started}
+
+%%% Setting Background Image %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\background{
+%	\begin{tikzpicture}[remember picture,overlay]%
+%	\draw (current page.north west)+(-2em,2em) node[anchor=north west]
+%	{\includegraphics[height=1.1\textheight]{background}};
+%	\end{tikzpicture}
+}
+
+%%% General Poster Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Eye Catcher, Title, Authors and University Images %%%%%%%%%%%%%%%%%%%%%%
+\begin{poster}{
+	grid=false,
+	% Option is left on true though the eyecatcher is not used. The reason is
+	% that we have a bit nicer looking title and author formatting in the headercol
+	% this way
+	% columns = 4,
+	eyecatcher=false, 
+	borderColor=bordercol,
+	headerColorOne=headerbgcol,
+	headerColorTwo=headerbgcol,
+	headerFontColor=headerfgcol,
+	% Only simple background color used, no shading, so boxColorTwo isn't necessary
+	boxColorOne=white,
+	headershape=rectangle,
+	headerfont=\Large\bf\textsf,
+	textborder=rectangle,
+	background=none,
+	headerborder=open,
+  boxshade=none, 
+  headershade=plain,
+  headerheight=0.1\textheight %% CHANGE THIS TO INCREASE ROOM FOR LONG TITLE
+}
+%%% Eye Cacther %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+%	Eye Catcher, empty if option eyecatcher=false - unused
+}
+%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+	% Keep this code on a single line to avoid weird formatting of long titles
+	\textbf{\textsf{\color{titlefgcol}{The title of my poster}}}\vspace{.5em}
+}
+%%% Authors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+	First Author$^1$, Second Author$^2$\\
+	{\smaller
+	  $^1$\textit{Metrum Research Group, Boston, MA, USA}, $^2$\textit{Organization Two}
+	}
+}
+%%% Logo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+	% The logos are compressed a bit into a simple box to make them smaller on the result
+	%\setlength\fboxsep{5pt}
+	%\setlength\fboxrule{0.5pt}
+%	\fbox{
+		% logo alone - revert back to this after 2024
+		% \begin{minipage}{20em}
+		% 	\begin{center}
+		% 	\includegraphics[width=18em]{newlogo} 
+		% 	\end{center}
+		% \end{minipage}
+		
+		% logo plus anniversary banner
+		\begin{minipage}{20em}
+			\begin{center}
+				\vspace{1.5cm} 
+				\includegraphics[width=18em]{newlogo} 
+				\vspace{0.5cm} 
+				\includegraphics[width=10em]{anniversary-banner.png}
+			\end{center}
+		\end{minipage}
+
+%	}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\headerbox{Abstract}{name=abstract,column=0,row=0}{
+% Replace this text with your Abstract
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat
+sed cras. Sit amet est placerat in egestas erat. Amet consectetur adipiscing
+elit duis tristique sollicitudin nibh sit. Risus at ultrices mi tempus imperdiet
+nulla. Mi bibendum neque egestas congue quisque egestas diam in arcu. Mattis
+pellentesque id nibh tortor id aliquet lectus proin nibh. Netus et malesuada
+fames ac turpis egestas integer eget aliquet. Auctor urna nunc id cursus metus
+aliquam eleifend mi in. Dolor morbi non arcu risus quis. Faucibus ornare
+suspendisse sed nisi lacus sed viverra tellus. Elementum curabitur vitae nunc
+sed velit dignissim sodales. Aenean sed adipiscing diam donec. Amet facilisis
+magna etiam tempor orci. Penatibus et magnis dis parturient montes nascetur.
+Tristique et egestas quis ipsum suspendisse. Odio pellentesque diam volutpat
+commodo. A scelerisque purus semper eget. Volutpat diam ut venenatis tellus in
+metus.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\headerbox{Methods}{name=methods,column=0,below=abstract}{
+
+% Replace this text with your Methods
+Vitae purus faucibus ornare suspendisse. Fames ac turpis egestas maecenas
+pharetra. Nibh tellus molestie nunc non blandit massa. Nisi quis eleifend quam
+adipiscing vitae proin. Sed euismod nisi porta lorem mollis aliquam ut. Luctus
+accumsan tortor posuere ac ut consequat. Ullamcorper velit sed ullamcorper morbi
+tincidunt. In est ante in nibh mauris cursus mattis molestie a. Nunc consequat
+interdum varius sit. Condimentum vitae sapien pellentesque habitant morbi
+tristique senectus. Elit pellentesque habitant morbi tristique. Nullam ac tortor
+vitae purus.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\headerbox{Results}{name=results,span=2,column=1,row=0}{
+% Replace this text with your Results
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat
+sed cras. Sit amet est placerat in egestas erat. Amet consectetur adipiscing
+elit duis tristique sollicitudin nibh sit. Risus at ultrices mi tempus imperdiet
+nulla. Mi bibendum neque egestas congue quisque egestas diam in arcu. Mattis
+pellentesque id nibh tortor id aliquet lectus proin nibh. Netus et malesuada
+fames ac turpis egestas integer eget aliquet. 
+
+
+
+Auctor urna nunc id cursus metus
+aliquam eleifend mi in. Dolor morbi non arcu risus quis. Faucibus ornare
+suspendisse sed nisi lacus sed viverra tellus. Elementum curabitur vitae nunc
+sed velit dignissim sodales. Aenean sed adipiscing diam donec. Amet facilisis
+magna etiam tempor orci. Penatibus et magnis dis parturient montes nascetur.
+Tristique et egestas quis ipsum suspendisse. Odio pellentesque diam volutpat
+commodo. A scelerisque purus semper eget. Volutpat diam ut venenatis tellus in
+metus.
+
+%% Example code to show how you could use interior boxes  
+%% within a section to partition content - these are optional 
+%% and can be used (or not) however they're needed
+	\begin{minipage}[c]{0.33\linewidth}
+		\begin{demobx}[]
+			\begin{center}
+				\includegraphics[width=18em]{newlogo} 
+			\end{center}
+			\small{\colorBF{Figure 1. Caption Title.} Description to accompany the figure.}
+		\end{demobx}
+	\end{minipage} % no space if you need them side by side
+	\begin{minipage}[c]{0.66\linewidth}
+		\begin{demobx}[]
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc sed blandit libero volutpat sed cras. Sit amet est placerat in egestas erat. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Risus at ultrices mi tempus imperdiet nulla. Mi bibendum neque egestas congue quisque egestas diam in arcu. Mattis pellentesque id nibh tortor id aliquet lectus proin nibh. Netus et malesuada fames ac turpis egestas integer eget aliquet.
+		\end{demobx}
+	\end{minipage} % no space if you need them side by side
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\headerbox{Conclusion}{name=conclusion,span=2,column=1,below=results}{
+% Replace this text with your Conclusions
+Dis parturient montes nascetur ridiculus mus mauris vitae
+ultricies. Vitae elementum curabitur vitae nunc sed velit dignissim sodales.
+Nunc consequat interdum varius sit amet. At elementum eu facilisis sed odio
+morbi quis commodo odio. Ac turpis egestas sed tempus urna et pharetra. Quis
+hendrerit dolor magna eget est lorem ipsum dolor sit. Vestibulum rhoncus est
+pellentesque elit.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%% References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{References}{name=references,column=2,below=methods}{
+	%% EXAMPLE CODE: assumes you included a bib file with relevant references
+	%% Code will include references via paperpile citation key (as in typical reports)
+	%% Only include this if your poster has citations \cite{} in the main body
+	%% of the poster and a bib file or you'll get a latex error message
+	%
+	% \begin{flushleft}
+	% 	\bibliographystyle{custom}
+   	% 	\renewcommand\refname{}
+	%    	\vspace{-4mm}
+	%    	\bibliography{name-of-bib-file}
+	% \end{flushleft}
+}
+
+
+%%%%%%%% References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{References}{name=references,column=2,below=methods}{
+	%% EXAMPLE CODE: assumes you included a bib file with relevant references
+	%% Code will include references via paperpile citation key (as in typical reports)
+	%% Only include this if your poster has citations \cite{} in the main body
+	%% of the poster and a bib file or you'll get a latex error message
+	%
+	% \begin{flushleft}
+	% 	\bibliographystyle{custom}
+   	% 	\renewcommand\refname{}
+	%    	\vspace{-4mm}
+	%    	\bibliography{name-of-bib-file}
+	% \end{flushleft}
+}
+
+%%%%%%%% QR code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% The size and location of the QR code can be moved as needed but
+%% should be included somewhere on your poster. 
+%% The QR code should point to MetrumRG's publications page
+\headerbox{Metrum Research Group Publications and Posters}{name=qrcode, span=1, column=2,below=references}{
+	\begin{center}
+		\includegraphics[scale=0.2]{mrg-publications-qr.png}		
+	\end{center}
+}
+
+%%%%%%%% Acknowledgements %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %\headerbox{Acknowledgements}{name=acknowledgements,column=2,below=references, span=1}{
+% %This work was funded by NameOfSponsorHere.
+% %}
+
+%%%%%%%% Footer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\conferenceName}{Conference Name}
+\newcommand{\conferenceDates}{5 November - 8 November 2024}
+\newcommand{\copyrightYear}{2024}
+
+% Change number of ~ to adjust the spacing of text in the footer as needed
+\headerbox{
+	\small ~~Presented at the \conferenceName ; \conferenceDates\
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Copies available at: www.metrumrg.com/all-publications 
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\copyright\ Metrum Research Group \copyrightYear
+}
+{name=footer,column=0,span=3,below=qrcode,textborder=none,headershape=rectangle,headerborder=none}{}
+
+
+\end{poster}
+\end{document}
