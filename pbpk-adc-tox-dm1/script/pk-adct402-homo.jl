@@ -23,7 +23,7 @@ p_adct402 = deepcopy(p_base);
 p_adct402.PS_Score = 6         # fitted from cyno
 p_adct402.init_sR = 0.77E-3    # https://pmc.ncbi.nlm.nih.gov/articles/PMC3520838/
 p_adct402.DAR = 2.3            # https://www.accessdata.fda.gov/drugsatfda_docs/nda/2021/761196Orig1s000MultidisciplineR.pdf (BLA)
-p_adct402.k_out = 24           # https://pubs.acs.org/doi/10.1021/acs.jmedchem.0c00691
+p_adct402.k_out = 24           # https://pubs.acs.org/doi/10.1021/acs.jmedchem.0c00691 (computed from PAMPA value reported in Table 1, with the assumption that cell radius = 5um; the range for this rate from different PBDs should be between 2.4 hr-1 and 345.6 hr-1, depends on the pH and modification )
 p_adct402.Kd = 665E-6          # https://www.accessdata.fda.gov/drugsatfda_docs/nda/2021/761196Orig1s000MultidisciplineR.pdf (BLA)
 
 tspan = (-0.01, 42*DayToHour);  # hr
