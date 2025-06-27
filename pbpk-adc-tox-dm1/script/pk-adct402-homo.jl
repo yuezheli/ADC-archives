@@ -4,7 +4,6 @@
 
 using ProjectRoot
 using Pkg; Pkg.activate(@projectroot)
-using Plots
 
 # ADCT-402 homo data; 
 # data obtained from https://www.accessdata.fda.gov/drugsatfda_docs/nda/2021/761196Orig1s000MultidisciplineR.pdf
@@ -31,6 +30,8 @@ dose_q3w = [0, 21]*DayToHour
 
 df_150_q3w = InfusionDoses(0.15, dose_q3w, p_adct402, infusion_time = 0.1, Reltol = 1E-18);
 df_150_q3w.dose .= "150 ug/kg";
+
+using Plots
 
 p_pk_adct402 = plot(xlabel = "Time (day)", ylabel = "ADC concentration (ug/L)", legend = :bottomright, legendcolumns=1, dpi = 1000, size = (400, 400)); 
 plot!(df_150_q3w.time/DayToHour, df_150_q3w.adcplasma*MW, linewidth = 2, alpha = 0.8, label = "simulation"); 
