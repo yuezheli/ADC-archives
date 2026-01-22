@@ -1,0 +1,28 @@
+Version: 1
+
+Packages:
+  - here
+  - mrggsave
+  - pmplots
+  - pmtables
+  - review
+  - sessioninfo
+  - tidyverse
+  - dplyr
+
+Repos:
+  - MPN: https://mpn.metworx.com/snapshots/stable/2024-09-23
+
+Customizations:
+  Packages:
+  - bbr: {Suggests: true}
+  - templ: {Type: source}
+  - arrow: 
+      Env:
+        NOT_CRAN: 'true'
+        LIBARROW_MINIMAL: 'false'      
+
+Lockfile:
+    Type: renv
+
+Rpath: ${R_EXE_4_3}

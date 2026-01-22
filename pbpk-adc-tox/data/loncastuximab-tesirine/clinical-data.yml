@@ -1,0 +1,155 @@
+SETUP__:
+  description: Analysis dataset for clinical studies for lonca modeling.
+  sponsor: ADC Therapeutics America, Inc.
+  projectnumber: ADC0302C
+  use_internal_db: true
+C:
+  short: comment
+NUM:
+  short: row number
+STUDY: 
+  short: study number
+  type: character
+USUBJID: 
+  about: original subject ID  
+ID:
+  about: subject ID
+TIME:
+  about: relative time from first dose
+  unit: hour
+TAD:
+  about: [time after previous dose, hour]
+DAY:
+  short: relative study day  
+EVID:
+  short: event identifier
+  values: {observation: 0, dose: 1}  
+AMT:
+  short: dose
+  unit: ug
+IFND:
+  short: infusion duration
+  unit: hour
+RATE:
+  short: infusion rate 
+  unit: ug/hour
+DV:
+  short: dependent variable
+DVID:
+  short: DV type
+  values:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+  decode: 
+    - dose (ug)
+    - Conjugated ADCT-402 (ug/L)
+    - SG3199 Free Warhead (ug/L)
+    - Total ADCT-402 (ug/L)
+    - Albumin (g/L)
+    - Lymphocytes (10^9/L)
+    - Tumor longest diameter (cm)
+    - Tumor shortest axis (cm)
+    - Tumor sum of area (cm^2)
+    - Total tumor sum of area (cm^2)
+    - Tumor volume (cm^3)
+    - Total tumor volume (cm^3)
+    - CD19+ (B-cells)
+    - CD19+ Mean Excitation Fluorescence
+    - CD19+ Mean Fluorescence Intensity
+    - CD19+ cells %
+    - CD20+ cells %
+    - CD20+ Mean Excitation Fluorescence
+    - CD20+ Mean Fluorescence Intensity
+    - CD21+ B cells events
+    - CD21+ B cells %
+DVNAME:
+  short: DV name
+  type: character
+LABCAT:
+  short: Lab category
+  values: ["tumor", "TBNK Trucount", "CD markers"]
+  decode: ["tumor biopsy", "panel 1: TBNK + Trucount", "panel 2: CD markers"]
+MDV:
+  short: missing DV
+LLOQ:
+  short: lower limit of quantification
+BLQ:
+  short: below limit of quantification
+  values: {above: 0, below: 1}
+ULOQ:
+  short: upper limit of quantification
+ALQ:
+  short: above limit of quantification
+ARMCD:
+  short: study arm code 
+DOSFRQ:
+  short: dose frequency
+BL:
+  short: baseline flag
+  values: {not baseline: 0, baseline: 1, not PD: NA}
+AGE:
+  short: age
+  unit: years
+SEX:
+  values: {male: 0, female: 1}
+RACE:
+  short: Race
+  values: [WHITE, BLACK OR AFRICAN AMERICAN, ASIAN, AMERICAN INDIAN OR ALASKA NATIVE, NATIVE HAWAIIAN OR OTHER PACIFIC ISLANDER, OTHER, NOT REPORTED]
+  decode: [White, Black or African American, Asian, American Indian or Alaska Native, Native Hawaiin or other Pacific Islander, Other, Not Reported]
+ETHNIC:
+  short: Ethnicity
+  values: [NOT HISPANIC OR LATINO, HISPANIC OR LATINO, NOT REPORTED]
+  decode: [Not Hispanic or Latino, Hispanic or Latino, Not Reported]
+WT: 
+  short: weight
+  unit: kg
+HT:
+  short: height
+  unit: cm
+BMI:
+  short: body mass index
+  unit: kg/m^2  
+DHFL:
+  short: DLBCL double hit flag
+THFL:
+  short: DLBCL triple hit flag
+RTFL:
+  short: DLBCL Richters transformation flag
+PMFL:
+  short: DLBCL primary mediastinal flag
+PREF:
+  short: Primary refractory disease flag
+  values: {relapse or other: 0, refractory: 1}
+BTSA:
+ short: Baseline tumor sum of area (cm^2) 
+ADCSF:
+  short: ADC switched sample pairs flag
+ADCCF:
+  short: Flag for records commented out by ADC
+TUMN:
+  short: Intrasubject tumor ID number
+TULOC:
+  short: Tumor location
+  type: character
+TUMNODE:
+  short: Tumor nodal flag
+  type: character
