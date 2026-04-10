@@ -118,7 +118,7 @@ p_homo = updatevolume_human(pbpk_sys, kon_Alb = 1E6, koff_Alb = 3.1);
 
 # Create and Solve the ODEProblem
 # The parameters (pars) are already baked into the system defaults.
-u0_exg = Dict([pbpk_sys.C_Plasma_Albud => 0.5E-3/4113/3.126]);
+u0_exg = Dict([pbpk_sys.C_Plasma_Exo => 0.5E-3/4113/3.126]);
 prob = ODEProblem(pbpk_sys, merge(p_homo, u0_exg), tspan);
 
 # save ODE; use Rodas5 and recommended tolerance
